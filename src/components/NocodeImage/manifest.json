@@ -1,0 +1,145 @@
+{
+  "name": "Nocode List",
+  "icon": "example-thumbnail.png",
+  "displayName": {
+    "en": "Nocode List",
+    "ja": "プラグイン名"
+  },
+  "defaultWidth": 500,
+  "defaultHeight": 300,
+  "resizeX": true,
+  "resizeY": true,
+  "props": [
+    {
+      "name": "items",
+      "displayName": {
+        "en": "What is this a list of?",
+        "ja": "データベースの選択"
+      },
+      "type": "list"
+    },
+    {
+      "name": "onPress",
+      "displayName": {
+        "en": "List",
+        "ja": "リスト"
+      },
+      "type": "action",
+      "role": "listItem",
+      "reference": "items"
+    }
+  ],
+  "childComponents": [
+    {
+      "name": "title",
+      "displayName": {
+        "en": "Title",
+        "ja": "タイトル"
+      },
+      "role": "listItem",
+      "reference": "items",
+      "props": [
+        {
+          "name": "text",
+          "displayName": {
+            "en": "Text",
+            "ja": "テキスト"
+          },
+          "type": "text",
+          "default": "Title",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "@text",
+            "fontWeight": "500",
+            "fontSize": "20",
+            "textAlignment": "left"
+          }
+        },
+        {
+          "name": "titleLineNum",
+          "displayName": {
+            "en": "Number of Lines",
+            "ja": "行数"
+          },
+          "type": "number",
+          "default": 1,
+          "control": {
+            "type": "menu",
+            "options": [
+              {
+                "label": "canvas.menuRight.elementTab.list.singleLine",
+                "value": 1
+              },
+              {
+                "label": "canvas.menuRight.elementTab.list.multiLine",
+                "value": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "btnFirst",
+      "displayName": {
+        "en": "Button 1",
+        "ja": "ボタン1"
+      },
+      "role": "listItem",
+      "reference": "items",
+      "props": [
+        {
+          "name": "enabled",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "text",
+          "displayName": {
+            "en": "Text",
+            "ja": "テキスト"
+          },
+          "type": "text",
+          "default": "Button 1",
+          "styles": {
+            "fontFamily": "@body",
+            "color": "@contrast:backgroundColor",
+            "fontWeight": "500"
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "displayName": {
+            "en": "Background Color",
+            "ja": "背景色"
+          },
+          "type": "color",
+          "default": "@primary",
+          "enabled": {
+            "background": true
+          }
+        },
+        {
+          "name": "borderColor",
+          "displayName": {
+            "en": "Border Color",
+            "ja": "Border Color"
+          },
+          "type": "color",
+          "default": "@primary",
+          "enabled": {
+            "border": true
+          }
+        },
+        {
+          "name": "onPress",
+          "displayName": {
+            "en": "ClickFlow",
+            "ja": "ClickFlow"
+          },
+          "type": "action"
+        }
+      ]
+    }
+  ]
+}

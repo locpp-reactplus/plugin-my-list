@@ -1,0 +1,32 @@
+{
+  "name": "@nocodejapan/nocode-image",
+  "description": "Plugin description",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "author": "Plugin Author",
+  "scripts": {
+    "start": "click-plugin-cli dev",
+    "login": "click-plugin-cli login",
+    "publish-plugin": "click-plugin-cli publish"
+  },
+  "click": {
+    "logo": "./example-logo.png",
+    "displayName": "Nocode Image",
+    "components": [
+      {
+        "name": "NocodeImage",
+        "manifest": "./src/components/NocodeImage/manifest.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "click-plugin-cli": "^1.0.26",
+    "react": "^17.0.2",
+    "react-native": "^0.66.3",
+    "react-native-paper": "^4.10.1"
+  },
+  "dependencies": {
+    "react-native-vector-icons": "^9.0.0"
+  }
+}
