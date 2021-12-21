@@ -69,6 +69,7 @@ function NocodeImage(props) {
               flexDirection: "row",
               padding: 5,
             }}
+            onPress={onPress}
           >
             <Text>{item?.title?.text}</Text>
 
@@ -76,11 +77,7 @@ function NocodeImage(props) {
               style={{ marginLeft: "auto", height: "100%", display: "flex" }}
             >
               {btnFirst?.enabled && (
-                <Button
-                  icon="trash-can"
-                  mode="contained"
-                  onPress={onPress}
-                >
+                <Button icon="trash-can" mode="contained" onPress={onPress}>
                   {btnFirst?.text}
                 </Button>
               )}
@@ -93,7 +90,16 @@ function NocodeImage(props) {
   );
 
   return (
-    <SafeAreaView style={{ width, height }}>
+    <SafeAreaView
+      style={{
+        width,
+        height,
+        borderColor,
+        borderWidth,
+        borderRadius,
+        borderStyle,
+      }}
+    >
       <VirtualizedList
         data={data}
         getItemCount={() => dataLength}

@@ -27,6 +27,55 @@
       "type": "action",
       "role": "listItem",
       "reference": "items"
+    },
+    {
+      "name": "borderColor",
+      "type": "text",
+      "displayName": {
+        "en": "Border Color",
+        "ja": "Border Color"
+      },
+      "enabled": {
+        "showProp": true
+      },
+      "default": "#ffffff"
+    },
+    {
+      "name": "borderStyle",
+      "type": "text",
+      "displayName": {
+        "en": "Border Style",
+        "ja": "Border Style"
+      },
+      "enabled": {
+        "showProp": true
+      },
+      "default": "none"
+    },
+    {
+      "name": "borderWidth",
+      "type": "number",
+      "displayName": {
+        "en": "Border Width",
+        "ja": "Border Width"
+      },
+      "enabled": {
+        "showProp": true
+      },
+      "default": 0
+    },
+
+    {
+      "name": "borderRadius",
+      "type": "number",
+      "displayName": {
+        "en": "Border Radius",
+        "ja": "Border Radius"
+      },
+      "enabled": {
+        "showProp": true
+      },
+      "default": 4
     }
   ],
   "childComponents": [
@@ -117,18 +166,6 @@
           "default": "@primary",
           "enabled": {
             "background": true
-          }
-        },
-        {
-          "name": "borderColor",
-          "displayName": {
-            "en": "Border Color",
-            "ja": "Border Color"
-          },
-          "type": "color",
-          "default": "@primary",
-          "enabled": {
-            "border": true
           }
         },
         {
