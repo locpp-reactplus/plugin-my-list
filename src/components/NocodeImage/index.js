@@ -29,29 +29,22 @@ function NocodeImage(props) {
     title,
     btnFirst,
   } = attributes;
-  console.log("props", props);
-  console.log("height", height);
-  console.log("items", items);
-  console.log("attributes", attributes);
 
   const data = dataBinding || items;
 
   const itemWidth = width;
   const dataLength = data.length;
   const itemHeight = (height - itemSpace * (dataLength - 1)) / defaultItemSize;
+  const lineNumber = title?.titleLineNum;
 
   const renderItem = useCallback(
     ({ item, index }) => {
-      console.log("index", index);
-      console.log("item", item);
-
       const isLastRecord = dataLength === index + 1;
 
       return (
         <TouchableOpacity
           style={{
             width: "100%",
-            height: itemHeight,
             marginBottom: isLastRecord ? 0 : itemSpace,
             shadowColor: "#000",
             shadowOffset: {
@@ -71,7 +64,12 @@ function NocodeImage(props) {
               padding: 5,
             }}
           >
-            <Text>{item?.title?.text}</Text>
+            <Text
+              style={{ display: "block" }}
+              numberOfLines={lineNumber ? lineNumber : 1}
+            >
+              {item?.title?.text}
+            </Text>
 
             <View
               style={{ marginLeft: "auto", height: "100%", display: "flex" }}
@@ -89,7 +87,7 @@ function NocodeImage(props) {
                     })
                   }
                 >
-                  {btnFirst?.text}
+                  {item?.btnFirst?.text}
                 </Button>
               )}
             </View>
