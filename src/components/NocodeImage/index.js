@@ -12,7 +12,7 @@ import {
 import { Button } from "react-native-paper";
 
 function NocodeImage(props) {
-  const { attributes, width, height, dataBinding, onPress } = props;
+  const { attributes, width, height, dataBinding, onPress, records } = props;
   const {
     text,
     color,
@@ -48,7 +48,7 @@ function NocodeImage(props) {
       const isLastRecord = dataLength === index + 1;
 
       return (
-        <View
+        <TouchableOpacity
           style={{
             width: "100%",
             height: itemHeight,
@@ -62,6 +62,7 @@ function NocodeImage(props) {
             shadowRadius: 1.0,
             elevation: 1,
           }}
+          onPress={() => onPress && onPress("onPress", { itemId: item._id })}
         >
           <View
             style={{
@@ -69,7 +70,6 @@ function NocodeImage(props) {
               flexDirection: "row",
               padding: 5,
             }}
-            onPress={onPress}
           >
             <Text>{item?.title?.text}</Text>
 
@@ -77,13 +77,24 @@ function NocodeImage(props) {
               style={{ marginLeft: "auto", height: "100%", display: "flex" }}
             >
               {btnFirst?.enabled && (
-                <Button icon="trash-can" mode="contained" onPress={onPress}>
+                <Button
+                  icon="trash-can"
+                  mode="contained"
+                  onPress={() =>
+                    onPress &&
+                    onPress("btnFirst", {
+                      itemId: item._id,
+                      indexRecord: index,
+                      externalId: records[index]?._id,
+                    })
+                  }
+                >
                   {btnFirst?.text}
                 </Button>
               )}
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       );
     },
     [itemHeight, itemWidth, dataLength, itemSpace, btnFirst]
