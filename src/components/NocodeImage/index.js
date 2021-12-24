@@ -106,7 +106,7 @@ function NocodeImage(props) {
         borderColor,
         borderWidth,
         borderRadius,
-        borderStyle,
+        // borderStyle,
       }}
     >
       <VirtualizedList
